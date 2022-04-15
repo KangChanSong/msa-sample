@@ -1,0 +1,40 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'egovframework.msa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // API Gateway
+    // - 단일 end-point 역할
+    // - 인증 및 보안
+    // - 모니터링
+    // - 동적 라우팅
+    // - 부하 테스트
+    // - 트래픽 드랍
+    // - 정적 응답 처리
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-zuul:2.2.5.RELEASE'
+
+    // Eureka Client
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.2.5.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.springframework.retry/spring-retry
+    implementation 'org.springframework.retry:spring-retry:1.2.5.RELEASE'
+
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
