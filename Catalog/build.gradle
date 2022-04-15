@@ -1,0 +1,48 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+ext {
+    springCloudVersion = '2.5.5.RELEASE'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+
+//    Circuit Breaker
+//    - 장애 및 지연 내성
+//    - 실시간 구동 모니터링
+//    - 병행성
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-hystrix:2.2.5.RELEASE'
+
+
+//    Client Load Balancer
+//    Rule - 요청을 보낼 서버를 선택하는 논리
+//    Ping - 서버 생존 여부 체크 논리
+//    ServerList - 로드 밸런싱 대상 서버 목록
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon:2.2.5.RELEASE'
+
+    // Eureka Client
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.2.5.RELEASE'
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
