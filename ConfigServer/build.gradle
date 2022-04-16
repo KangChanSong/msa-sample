@@ -1,0 +1,28 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'egovframework.msa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // 각 서비스의 설정 값들을 중앙집중식으로 관리
+    implementation 'org.springframework.cloud:spring-cloud-config-server:2.2.6.RELEASE'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
