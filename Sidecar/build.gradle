@@ -1,0 +1,26 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'egovframework.msa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // SideCar
+    // 비 JVM 애플리케이션의 Service Registry 등록을 도와줌
+    implementation 'org.springframework.cloud:spring-cloud-netflix-sidecar:2.2.5.RELEASE'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
