@@ -16,11 +16,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    // 각 서비스의 설정 값들을 중앙집중식으로 관리
-    implementation 'org.springframework.cloud:spring-cloud-config-server:2.2.5.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
 
+    implementation 'org.springframework.cloud:spring-cloud-starter-config:2.2.5.RELEASE'
 }
 
 tasks.named('test') {
