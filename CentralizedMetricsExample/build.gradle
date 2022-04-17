@@ -1,0 +1,31 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'egovframework.msa'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // Spring Boot Actuator는 Micrometer를 사용하여 애플리케이션 정보를 노출
+    // 노출된 정보를 Prometheus 로 저장하고 grafana로 시각화
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.2.6.RELEASE'
+    
+    implementation 'io.micrometer:micrometer-core:1.8.3'
+    
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.8.3'
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
