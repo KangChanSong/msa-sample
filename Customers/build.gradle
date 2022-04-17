@@ -27,6 +27,11 @@ dependencies {
 
     // Eureka Client
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.2.5.RELEASE'
+    implementation 'org.springframework.cloud:spring-cloud-starter-zipkin:2.2.5.RELEASE'
+
+
+    // Distributed Tracing
+    implementation 'org.springframework.cloud:spring-cloud-starter-sleuth:2.2.5.RELEASE'
 }
 
 tasks.named('test') {
